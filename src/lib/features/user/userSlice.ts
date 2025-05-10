@@ -4,26 +4,20 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 export interface UserState {
   uid: string | null;
   email: string;
-  is_admin: boolean;
 }
 
 const initialState: UserState = {
   uid: null,
   email: "",
-  is_admin: false,
 };
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUser: (
-      state,
-      action: PayloadAction<{ uid: string; email: string; is_admin: boolean }>
-    ) => {
+    setUser: (state, action: PayloadAction<{ uid: string; email: string }>) => {
       state.uid = action.payload.uid;
       state.email = action.payload.email;
-      state.is_admin = action.payload.is_admin;
     },
   },
 });

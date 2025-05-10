@@ -1,8 +1,9 @@
 "use client";
 
-import Tabs from "./_header/Tabs";
+import Image from "next/image";
 import Profile from "./_header/Profile";
 import { usePathname } from "next/navigation";
+import { clipforge } from "@/ui/images";
 
 export default function Header() {
   const pathname = usePathname();
@@ -12,10 +13,11 @@ export default function Header() {
         pathname === "/dashboard" && "hidden"
       }`}
     >
-      <div className="flex gap-2 justify-center items-center">
-        <Tabs />
+      <div className="flex gap-2 items-center">
+        <Image src={clipforge} alt="" className="w-7 h-7" />
+        <span className="text-white text-2xl font-bold">CLIP FORGE</span>
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex gap-2 items-center">
         <Profile />
       </div>
     </header>
